@@ -149,7 +149,8 @@ This experiment benchmarks the latency overhead when using DeBERTa to inspect th
     MCP_USE_ANONYMIZED_TELEMETRY=false OPENAI_API_KEY=empty python benchmark_llamafirewall.py --env cvm --iters 10 --firewall --firewall-trace-type deberta
     ```
    Expected Output: a `logs/firewall_llama_True_profile_cvm_deberta.json` 
-2. Plot the results
+
+2. **Plot the results**
     ```bash
     # visualize guardrail overhead (deberta to filter tool output)
     python visualize_firewall_overhead.py --input_file logs/firewall_llama_True_profile_cvm_deberta.json --output_file pdfs/firewall_latency_drilldown_cvm_deberta.pdf --alignment_check deBERTa
@@ -159,13 +160,13 @@ This experiment benchmarks the latency overhead when using DeBERTa to inspect th
 ### 📊 Figure 4: LLM Trace Inspection
 
 This experiment benchmarks the latency overhead when using a LLM to inspect the agent's execution trace.
-1. Generate the benchmark data on **confidential VM**:
+1. **Generate the benchmark data** on **confidential VM**:
     ```bash
     MCP_USE_ANONYMIZED_TELEMETRY=false OPENAI_API_KEY=empty python benchmark_llamafirewall.py --env cvm --iters 10 --firewall --firewall-trace-type llm
     ```
     Expected Output: `logs/firewall_llama_True_profile_cvm_llm.json` will be generated.
 
-2. Plot the results    
+2. **Plot the results**
     ```bash
     # visualize guardrail overhead (use LLM to filter tool output)
     python visualize_firewall_overhead.py --input_file logs/firewall_llama_True_profile_cvm_llm.json --output_file pdfs/firewall_latency_drilldown_cvm_LLM.pdf --alignment_check LLM
