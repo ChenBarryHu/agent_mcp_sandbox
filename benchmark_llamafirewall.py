@@ -158,8 +158,7 @@ async def run_benchmark(iterations: int, env_name: str, output_file: str, enable
         json.dump({"summary": summary, "raw_data": raw_dicts}, f, indent=2)
     
     logger.info(f"✅ Benchmark finished. Saved to {output_file}")
-    if enable_firewall:
-        logger.info(f"🛡️  Avg Firewall Overhead: {avg_firewall:.2f} ms")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Profile Agent Performance")
