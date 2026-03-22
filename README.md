@@ -63,7 +63,7 @@ sudo <insert_path>/qemu-system-x86_64 -enable-kvm -cpu EPYC-v4,phys-bits=48 -mac
 
 --- 
 
-## 📋 Software Prerequisites (install on both confidential VM and standard VM)
+## 📋 Software Prerequisites (install inside both confidential VM and standard VM)
 ### 1. Install VLLM and Host it Locally
 To host vLLM on CPU, check on `vllm_install\build_vllm_cpu.md`
 
@@ -141,7 +141,7 @@ HF_TOKEN="<your_huggingface_token>"
 
 ## 🚀 Usage - Benchmarking Guardrail Overhead (Figures 3 & 4)
 
-This section reproduces the guardrail overhead benchmarks on the **Confidential VM (CVM)** as presented in the paper.
+This section reproduces the guardrail overhead benchmarks on the **Confidential VM** as presented in the paper.
 
 ### 📊 Figure 3: DeBERTa Trace Inspection
 This experiment benchmarks the latency overhead when using DeBERTa to inspect the agent's execution trace.
