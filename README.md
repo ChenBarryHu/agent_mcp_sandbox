@@ -123,18 +123,19 @@ HF_TOKEN="<your_huggingface_token>"
     - `--env`: String label for the test environment (affects the output filename).
     - `--iters`: Number of benchmark cycles to perform (default: 10).
 
-    A `profile_cvm.json` will be generated in this projectory folder on the **confidential VM**.
+    Expected Output: A `profile_cvm.json` will be generated in this projectory folder on the **confidential VM**.
 
 2. On **standard VM**, run:
     ```bash
     MCP_USE_ANONYMIZED_TELEMETRY=false python benchmark.py --env std --iters 10
     ```
-    A `profile_std.json` will be generated in this projectory folder on the **standard VM**.
+    Expected Output: A `profile_std.json` will be generated in this projectory folder on the **standard VM**.
 
-3. Collect the `profile_cvm.json` (from **confidential VM**) and `profile_std.json` (from **standard VM**), place them under the `logs` folder, then run the visualization script (by default, the pdf is generated under `pdfs/cvm_dashboard.pdf`):
+3. Collect the `profile_cvm.json` (from **confidential VM**) and `profile_std.json` (from **standard VM**), place them under the `logs` folder, then run the visualization script:
     ```bash
     python visualize.py --std  logs/profile_std.json  --cvm logs/profile_cvm.json
     ```
+    Expected Output: the plot for Figure 2 will be saved to `pdfs/cvm_dashboard.pdf`
 
 ---
 
