@@ -1,0 +1,128 @@
+{
+  "summary": {
+    "environment": "std",
+    "iterations": 10,
+    "startup_mcp_connection": 40.438711285591125,
+    "startup_tool_conversion": 3.016632103919983,
+    "avg_total": 106055.66821148395,
+    "avg_planning": 82965.54464468957,
+    "avg_tool_exec": 3.1090211868286133,
+    "avg_processing": 23032.167710006237,
+    "p95_total": 108541.62474703789,
+    "avg_prefill_tps": 120.71293526484814,
+    "avg_decode_tps": 9.255186674242339,
+    "avg_ttft": 20621.70220489502
+  },
+  "raw_data": [
+    {
+      "mcp_connection_ms": 41.25584805011749,
+      "tool_conversion_ms": 3.111922025680542,
+      "phase_planning_ms": 77493.4311349392,
+      "phase_tool_exec_ms": 3.172652006149292,
+      "phase_processing_ms": 23493.133612036705,
+      "total_latency_ms": 101208.17264091969,
+      "proc_ttft_ms": 20960.490035057068,
+      "proc_prefill_tps": 118.89035016986975,
+      "proc_decode_tps": 9.081419987027619
+    },
+    {
+      "mcp_connection_ms": 40.578469038009644,
+      "tool_conversion_ms": 4.088781952857971,
+      "phase_planning_ms": 80640.54289293289,
+      "phase_tool_exec_ms": 3.5645129680633545,
+      "phase_processing_ms": 23123.047572016716,
+      "total_latency_ms": 103808.0527549982,
+      "proc_ttft_ms": 20621.003435969353,
+      "proc_prefill_tps": 120.70217667770817,
+      "proc_decode_tps": 9.192483725061122
+    },
+    {
+      "mcp_connection_ms": 43.695830941200256,
+      "tool_conversion_ms": 2.767881989479065,
+      "phase_planning_ms": 85460.21629393101,
+      "phase_tool_exec_ms": 3.289691925048828,
+      "phase_processing_ms": 23055.79218494892,
+      "total_latency_ms": 108553.72470605373,
+      "proc_ttft_ms": 20558.17333292961,
+      "proc_prefill_tps": 121.07106792475462,
+      "proc_decode_tps": 9.208770978568102
+    },
+    {
+      "mcp_connection_ms": 41.85388004779816,
+      "tool_conversion_ms": 2.6489109992980957,
+      "phase_planning_ms": 85031.71753299236,
+      "phase_tool_exec_ms": 3.8073819875717163,
+      "phase_processing_ms": 23325.209862947464,
+      "total_latency_ms": 108399.33655691147,
+      "proc_ttft_ms": 20593.65724694729,
+      "proc_prefill_tps": 120.86245634533702,
+      "proc_decode_tps": 9.15230402429795
+    },
+    {
+      "mcp_connection_ms": 39.934016942977905,
+      "tool_conversion_ms": 2.6854230165481567,
+      "phase_planning_ms": 85077.14393496513,
+      "phase_tool_exec_ms": 4.090102910995483,
+      "phase_processing_ms": 22805.28341805935,
+      "total_latency_ms": 107921.86976289749,
+      "proc_ttft_ms": 20662.734565019608,
+      "proc_prefill_tps": 120.50679895077272,
+      "proc_decode_tps": 9.334676299970942
+    },
+    {
+      "mcp_connection_ms": 39.1623569726944,
+      "tool_conversion_ms": 2.691132068634033,
+      "phase_planning_ms": 85377.85192608833,
+      "phase_tool_exec_ms": 2.2734220027923584,
+      "phase_processing_ms": 23124.146952033043,
+      "total_latency_ms": 108541.62474703789,
+      "proc_ttft_ms": 20623.135728001595,
+      "proc_prefill_tps": 120.7381861245833,
+      "proc_decode_tps": 9.196280200184656
+    },
+    {
+      "mcp_connection_ms": 38.330296993255615,
+      "tool_conversion_ms": 2.8968019485473633,
+      "phase_planning_ms": 85240.59526002407,
+      "phase_tool_exec_ms": 4.3564029932022095,
+      "phase_processing_ms": 23090.08122897148,
+      "total_latency_ms": 108372.65242791176,
+      "proc_ttft_ms": 20638.84905898571,
+      "proc_prefill_tps": 120.64626243854948,
+      "proc_decode_tps": 9.38303612429071
+    },
+    {
+      "mcp_connection_ms": 42.58134996891022,
+      "tool_conversion_ms": 2.5961320400238037,
+      "phase_planning_ms": 77541.01688802242,
+      "phase_tool_exec_ms": 2.3873120546340942,
+      "phase_processing_ms": 23136.195881009102,
+      "total_latency_ms": 100717.90873706341,
+      "proc_ttft_ms": 20701.197422027588,
+      "proc_prefill_tps": 120.33120351528042,
+      "proc_decode_tps": 9.445591193359606
+    },
+    {
+      "mcp_connection_ms": 39.376927971839905,
+      "tool_conversion_ms": 3.743252992630005,
+      "phase_planning_ms": 85061.32507395744,
+      "phase_tool_exec_ms": 2.1189420223236084,
+      "phase_processing_ms": 22586.373465061188,
+      "total_latency_ms": 107685.11031508446,
+      "proc_ttft_ms": 20436.940227031708,
+      "proc_prefill_tps": 121.64247545783766,
+      "proc_decode_tps": 9.304778416069928
+    },
+    {
+      "mcp_connection_ms": 37.618135929107666,
+      "tool_conversion_ms": 2.9360820055007935,
+      "phase_planning_ms": 82731.60550904274,
+      "phase_tool_exec_ms": 2.029790997505188,
+      "phase_processing_ms": 22582.4129229784,
+      "total_latency_ms": 105348.22946596146,
+      "proc_ttft_ms": 20420.840996980667,
+      "proc_prefill_tps": 121.73837504378828,
+      "proc_decode_tps": 9.252525793592753
+    }
+  ]
+}
