@@ -195,7 +195,7 @@ class SimpleAgent:
             try:
                 args = json.loads(call.function.arguments)
                 result = await tool.ainvoke(args)
-                if result['error']:
+                if 'error' in result:
                     logger.warning(f"Caught null parameter error for {call.function.name} with arguments {args}. Triggering retry.")
                     needs_retry = True
 
