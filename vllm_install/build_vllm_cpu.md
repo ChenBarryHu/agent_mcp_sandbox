@@ -14,7 +14,12 @@ uv pip install -U pip setuptools wheel packaging setuptools_scm cmake ninja
 ### 2. Install PyTorch (CPU Version)
 Install the specific CPU wheels for PyTorch to avoid CUDA dependencies.
 ```bash
-uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+uv pip install \
+  torch==2.10.0+cpu \
+  torchvision==0.25.0+cpu \
+  torchaudio==2.10.0+cpu \
+  --index-url https://download.pytorch.org/whl/cpu \
+  --no-cache
 ```
 
 ### 3. Clone and Modify pyproject.toml
@@ -38,10 +43,17 @@ uv pip install -r ../requirements-cpu.txt
 ```
 
 ### 5. Build vLLM
-make sure gcc-12 g++-12 are installed:
+Here is our gcc, g++ version:
 ```bash
-sudo apt-get update
-sudo apt-get install gcc-12 g++-12
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 Export the necessary environment variables to force a CPU build and install without build isolation.
 ```bash
