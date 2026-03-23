@@ -1,5 +1,6 @@
 # MCP Agent Profiler
-**Note: Our organization allows publishing the demo code to the reviewers for evaluation purposes but not to the general public. Thank you for your understanding**
+**Note: Our organization allows publishing the demo code to the reviewers for evaluation purposes but not to the general public. Thank you for your understanding.**
+
 A demo code designed to measure the latency, throughput, and efficiency of LLM agents using the **Model Context Protocol (MCP)**. This tool specifically evaluates how quickly an agent can plan, interact with a local filesystem, and process large context returns in confidential VMs and standard VMs. In addition, we measure the system overhead introduced by Llama firewall (deberta and llm-based guardrails) for a better understanding of guardrail impacts on system utility. Our code is to be run on CPUs. 
 
 ---
