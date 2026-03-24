@@ -62,11 +62,18 @@ export VLLM_USE_CUDA=0
 export CUDA_HOME=""
 export FORCE_CUDA=0
 export MAX_JOBS=$(nproc)
+unset CFLAGS CXXFLAGS
+export CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O0"
 
 # Install vLLM without dependencies to preserve the CPU Torch version, this step might takes long...
 uv pip install --no-build-isolation --no-deps .
 ```
 Expected: vLLM Version: 0.14.0rc2.dev278+g7e2230975
+```bash
+shichen@amd-sev-snp-cvm:~/dev/sandbox/vllm_install/vllm$ ls -lh build/lib.linux-x86_64-cpython-310/vllm/*.so
+-rw-r--r-- 1 shichen shichen 4.3M Mar 24 11:55 build/lib.linux-x86_64-cpython-310/vllm/_C.abi3.so
+```
+
 
 ### 6. Verification
 After the build completes, verify that vLLM is actually running on the CPU:
