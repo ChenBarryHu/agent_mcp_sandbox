@@ -158,8 +158,7 @@ When you run the script,  Llama-Prompt-Guard-2-86M model weight will be download
 
     We add the following instructions thanks to the valuable feedback from one of the reviewers:
     
-    > Before running anything, we first need to ensure that Llamafirewall’s trace checker, AlignmentCheck (https://github.com/meta-llama/PurpleLlama/blob/main/LlamaFirewall/src/llamafirewall/scanners/experimental/alignmentcheck_scanner.py
-), is configured to use our local LLM so that the benchmark results are meaningful. Since Llamafirewall is currently hardcoded to use together.ai, we need to modify the AlignmentCheck implementation to instead point to our locally hosted vLLM instance.
+    > Before running anything, we first need to ensure that Llamafirewall’s trace checker, AlignmentCheck (https://github.com/meta-llama/PurpleLlama/blob/main/LlamaFirewall/src/llamafirewall/scanners/experimental/alignmentcheck_scanner.py), is configured to use our local LLM so that the benchmark results are meaningful. Since Llamafirewall is currently hardcoded to use together.ai, we need to modify the AlignmentCheck implementation to instead point to our locally hosted vLLM instance.
 
     Navigate to `.venv/lib/python3.11/site-packages/llamafirewall/scanners/experimental/alignmentcheck_scanner.py` (or the corresponding path where the Llamafirewall package is installed). Locate the `AlignmentCheckScanner` class and modify its `__init__` method as follows:
     ```python
