@@ -154,7 +154,46 @@ When you run the script,  Llama-Prompt-Guard-2-86M model weight will be download
     ```
 
 
-2. For figure 4. on **confidential VM**, benchmark guardrails (llm to inspect execution trace):
+2. For figure 4. on **confidential VM**, benchmark guardrails (with llm to inspect execution trace):
+
+    We add the following instructions thanks to the valuable feedback from one of the reviewers:
+    
+    > Before running anything, we first need to ensure that Llamafirewall’s trace checker, AlignmentCheck (https://github.com/meta-llama/PurpleLlama/blob/main/LlamaFirewall/src/llamafirewall/scanners/experimental/alignmentcheck_scanner.py
+), is configured to use our local LLM so that the benchmark results are meaningful. Since Llamafirewall is currently hardcoded to use together.ai, we need to modify the AlignmentCheck implementation to instead point to our locally hosted vLLM instance.
+
+    Navigate to `.venv/lib/python3.11/site-packages/llamafirewall/scanners/experimental/alignmentcheck_scanner.py` (or the corresponding path where the Llamafirewall package is installed). Locate the `AlignmentCheckScanner` class and modify its `__init__` method as follows:
+    ```python
+    class AlignmentCheckScanner(CustomCheckScanner[AlignmentCheckOutputSchema]):
+    """
+    A scanner that detect misalignment between original user intention and current thought trajectory.
+    """
+
+    def __init__(
+        self,
+        scanner_name: str = "AlignmentCheck Scanner",
+    ) -> None:
+        """
+        Initialize a new AlignmentCheckScanner.
+
+        Args:
+            scanner_name: Name of the scanner
+            block_threshold: Threshold for blocking content
+            model_name: Name of the LLM model to use
+            api_base_url: Base URL for the API
+            api_key_env_var: Environment variable name containing the API key
+            temperature: Temperature setting for the LLM
+        """
+        super().__init__(
+            scanner_name=scanner_name,
+            system_prompt=SYSTEM_PROMPT,
+            output_schema=AlignmentCheckOutputSchema,
+            model_name="Qwen/Qwen2.5-0.5B-Instruct",  # Updated here: name of the locally deployed llm
+            api_base_url="http://localhost:8005/v1",  # Updated here: url of the vllm exposed API access point
+            api_key_env_var="VLLM_API_KEY"            # Updated here: fake API key
+        )
+        self.require_full_trace = True
+    ```
+    Now we can run the actual benchmark:
     ```bash
     MCP_USE_ANONYMIZED_TELEMETRY=false OPENAI_API_KEY=empty python benchmark_llamafirewall.py --env cvm --iters 10 --firewall --firewall-trace-type llm
     ```
