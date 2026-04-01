@@ -1,5 +1,16 @@
 ## vLLM CPU Build Instructions
-
+### 0. Prerequisites (Thanks to the valueable feedback from the reviewer)
+Please make sure that you have cmake, gcc, g++ and libnuma-dev installed:
+```bash
+sudo apt update && sudo apt install cmake libnuma-dev gcc g++
+```
+The versions that we used:
+```bash
+cmake version 3.22.1
+libnuma-dev version: 2.0.14-3ubuntu2
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+```
 ### 1. Environment Setup
 Create a Python 3.10 virtual environment and install the necessary build tools.
 
@@ -74,7 +85,10 @@ shichen@amd-sev-snp-cvm:~/dev/sandbox/vllm_install/vllm$ ls -lh build/lib.linux-
 -rw-r--r-- 1 shichen shichen 4.3M Mar 24 11:55 build/lib.linux-x86_64-cpython-310/vllm/_C.abi3.so
 ```
 
-
+From the valuable feedback of a reviewer: if you encounter a Ninja generator RPATH issue. try adding this line to the CMakeLists.txt file of vLLM:
+```bash
+set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+```
 ### 6. Verification
 After the build completes, verify that vLLM is actually running on the CPU:
 ```bash

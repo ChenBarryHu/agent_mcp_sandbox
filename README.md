@@ -105,7 +105,7 @@ source .venv/bin/activate
 ```
 
 ### 4. Environment Configuration
-Update the .env file in the root directory with your local paths and vLLM configuration:
+Update the .env file in the root directory with your local paths and vLLM configuration, please fill in `<path_to_this_project_directory>`, `<path_to_home_directory>` and  `<your_huggingface_token>`:
 ```bash
 # .env
 VLLM_BASE_URL=http://localhost:8005/v1
@@ -141,6 +141,8 @@ HF_TOKEN="<your_huggingface_token>"
 ---
 
 ## 🚀 Usage - benchmark the guardrail overhead, Figure 3, 4 in paper
+We use the Llama-Prompt-Guard-2-86M for this benchmark, please make sure you have set the hugging face token in `.env` and have requested access to  https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M.
+When you run the script,  Llama-Prompt-Guard-2-86M model weight will be downloaded, cached and used.
 1. For figure 3, on **confidential VM**, benchmark guardrails (deberta to inspect execution trace):
     ```bash
     MCP_USE_ANONYMIZED_TELEMETRY=false OPENAI_API_KEY=empty python benchmark_llamafirewall.py --env cvm --iters 10 --firewall --firewall-trace-type deberta
